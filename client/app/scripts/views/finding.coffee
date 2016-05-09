@@ -96,7 +96,7 @@ Codeburner.Views.FindingList = Backbone.View.extend
       project = $('#project-name').val()
       id = $('.highlight-row:selected').data 'id'
 
-      $('#publish-dialog-body-jira').hide()
+      $('#publish-dialog-body-details').hide()
       $('#publish-submit').prop 'disabled', true
       $('#publish-dialog-body').hide()
       $('#publish-dialog-spinner').show()
@@ -240,13 +240,18 @@ Codeburner.Views.FindingList = Backbone.View.extend
         $(e.target).parent().find('.floating-label').addClass 'invalid'
 
   setTicketOption: (type) ->
-    if type == "jira"
-      $('#publish-dialog-body-jira').html JST['app/scripts/templates/finding_publish_jira.ejs']
-      $('#publish-submit').prop 'disabled', true
-      $('#publish-dialog-body-jira').show(400)
-    else
-      $('#publish-dialog-body-jira').hide()
-      $('#publish-submit').prop 'disabled', false
+    $('#publish-dialog-body-details').hide()
+    switch type
+      when "jira"
+        $('#publish-dialog-body-details').html JST['app/scripts/templates/finding_publish_jira.ejs']
+        $('#publish-submit').prop 'disabled', true
+        $('#publish-dialog-body-details').show(400)
+      when "pivotal"
+        $('#publish-dialog-body-details').html JST['app/scripts/templates/finding_publish_pivotal.ejs']
+        $('#publish-submit').prop 'disabled', true
+        $('#publish-dialog-body-details').show(400)
+      else
+        $('#publish-submit').prop 'disabled', false
 
   filterServiceList: (services, filter) ->
     if filter
