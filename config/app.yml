@@ -53,6 +53,8 @@ defaults: &defaults
     context_path:
     use_ssl: false
     link_host: https://my_jira_host
+  pivotal:
+    token:
 
 development:
   <<: *defaults

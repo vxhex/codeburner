@@ -1,4 +1,4 @@
-`<!--
+<!--
 The MIT License (MIT)
 
 Copyright (c) 2016, Groupon, Inc.
@@ -21,26 +21,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-<div class="container-fluid">
-  <div class="row" id="settings">
-    <div class="col-lg-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">Codeburner Settings</div>
-        <div class="panel-body">
-          <table class="table borderless">
-            <tbody>
-              <tr class="settings-list" data-id="github" selected><td>GitHub</td></tr>
-              <tr class="settings-list" data-id="admin" selected><td>Administrator Access</td></tr>
-              <tr class="settings-list" data-id="email"><td>E-mail Notifications</td></tr>
-              <tr class="settings-list" data-id="pipeline"><td>OWASP Pipeline</td></tr>
-              <tr class="settings-list" data-id="jira"><td>JIRA</td></tr>
-              <tr class="settings-list" data-id="pivotal"><td>Pivotal Tracker</td></tr>
-            <tbody>
-          </table>
+<div class="panel panel-default">
+  <div class="panel-heading">Pivotal Tracker</div>
+  <div class="panel-body">
+    <div id="category" data-id="pivotal">
+      <fieldset>
+        <div class="form-group">
+          <input type="TEXT" class="input-setting form-control floating-label" placeholder="API Token" name="token" data-id="token" value="<%= settings.token %>">
         </div>
-      </div>
-    </div>
-    <div id="settings-detail" class="col-lg-6">
+      </fieldset>
+      <button class="btn btn-primary pull-right" id="settings-submit">Update Pivotal Tracker Settings</button>
     </div>
   </div>
 </div>
